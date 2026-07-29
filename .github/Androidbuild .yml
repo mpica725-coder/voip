@@ -1,0 +1,27 @@
+Here is the code you can copy and paste into a new file named android-build.yml inside the .github/workflows directory of your repository.
+This workflow will set up the environment, check out your code, and generate the release App Bundle for you.
+name: Build Android App Bundle
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build App Bundle
+        run: ./gradlew bundleRelease
+
