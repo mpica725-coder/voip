@@ -10,6 +10,7 @@ jobs:
           distribution: 'zulu'
           java-version: '11'
           architecture: 'x64'
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
       - name: Build Android App Bundle
         run: ./gradlew bundleRelease
-        
