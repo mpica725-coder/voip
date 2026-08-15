@@ -12,9 +12,5 @@ jobs:
           architecture: 'x64'
       - name: Make gradlew executable
         run: chmod +x ./gradlew
-      - name: Download gradle-wrapper.jar
-        run: |
-          mkdir -p gradle/wrapper
-          curl -L https://services.gradle.org/distributions/gradle-8.5-wrapper.jar -o gradle/wrapper/gradle-wrapper.jar
       - name: Build Android App Bundle
         run: ./gradlew bundleRelease
